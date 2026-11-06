@@ -1,20 +1,15 @@
-<<<<<<< HEAD
-name: Stage the app
-=======
 name: Deploy to staging
->>>>>>> 3e0e8e1 (Modify GitHub Actions workflow for staging app (#2))
 
 on:
   pull_request:
     types: [labeled]
 
-<<<<<<< HEAD
 jobs:
   build:
     runs-on: ubuntu-latest
 
     if: contains(github.event.pull_request.labels.*.name, 'stage')
-=======
+
 env:
   IMAGE_REGISTRY_URL: ghcr.io
   ###############################################
@@ -110,4 +105,8 @@ jobs:
             az logout
             az cache purge
             az account clear
->>>>>>> 3e0e8e1 (Modify GitHub Actions workflow for staging app (#2))
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    if: contains(github.event.pull_request.labels.*.name, 'stage')
